@@ -4,6 +4,10 @@
     font-weight: normal;
 }
 
+.Edit.done{
+    visibility: hidden;
+}
+
 .TodoItem-Table{
     padding-top: 15px;
     padding-bottom: 35px;
@@ -32,6 +36,12 @@
     font-size: 15px;
     background-color: transparent;
     color: blue;
+    text-decoration: underline;
+}
+
+.text-area{
+    width: 100%;
+    height: 100%;
 }
 
 .Delete{
