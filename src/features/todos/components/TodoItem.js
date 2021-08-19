@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { deleteFromList, updateTodo } from '../../apis/todos';
-import {selectTodoById, ToggleTodo, DeleteTodo } from "../reducers/todosSlice";
+import { deleteFromList, editTodo, updateTodo } from '../../apis/todos';
+import {selectTodoById, ToggleTodo, DeleteTodo, EditTodo} from "../reducers/todosSlice";
 import "../styles/TodoItem.css";
 import { useState } from 'react';
 import { Modal} from 'antd';
@@ -10,6 +10,7 @@ function TodoItem(props) {
     const todo = useSelector (state => selectTodoById(state, props.itemId));
     const dispatch = useDispatch();
     const [isModalVisible, setIsModalVisible] = useState(false);
+    const [text, setText] = useState("");
 
     function handleClick() {
         updateTodo(props.itemId, {done: !todo.done}).then((response) => {
@@ -29,6 +30,13 @@ function TodoItem(props) {
     };
     
     const handleOk = () => {
+        var x = document.getElementById("text-area").value;
+        if(x){
+            console.log ("x:",x);
+            updateTodo(props.itemId, {x}).then((response) =>{
+                dispatch(EditTodo(props.itemId, response.data));
+            });
+        }
         setIsModalVisible(false);
     };
     
@@ -46,7 +54,7 @@ function TodoItem(props) {
             <button className= "Delete" onClick = {onClickDelete}>X</button>
 
             <Modal title="Edit Todo" type="primary" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-                <textarea className="text-area">{todo.text}</textarea>
+                <textarea id="text-area" className="text-area">{todo.text}</textarea>
             </Modal>
     </div>);
 }
