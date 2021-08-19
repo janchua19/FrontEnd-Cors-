@@ -26,6 +26,7 @@ function TodoItem(props) {
 
     return (<div className = "TodoItem-Table">
             <span className= {`TodoItem-todo ${todoStatus}`} onClick = {handleClick}>{todo.text}</span>
+            <button className= "Edit" onClick = {onClickDelete}>Edit</button>
             <button className= "Delete" onClick = {onClickDelete}>X</button>
     </div>);
 }
