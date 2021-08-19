@@ -1,0 +1,37 @@
+.TodoForm{
+    margin-top: 20px;
+    position: fixed;
+    bottom: 105px;
+    background-color: #e796a0;
+    padding-left: 35px;
+    padding-right: 35px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 5px;
+}
+
+.Add{
+    margin-left: 10px;
+    color: white;
+    background-color: #246D82;
+    padding: 10px;
+    padding-left: 45px;
+    padding-right: 45px;
+    font-size: 15px;
+    border-radius: 5px;
+    transition-duration: 0.4s;
+}
+
+.Add:hover {
+    background-color:red;
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+
+.InputTextBox{
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 5px;
+    width: 1300px;
+    background-color: whitesmoke;
+}

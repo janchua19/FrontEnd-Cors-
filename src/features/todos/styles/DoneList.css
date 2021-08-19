@@ -1,0 +1,19 @@
+.DoneList-Container{
+    margin-top: 20px;
+    background-color: #e796a0;
+    max-width:1500px;
+    margin-left: 10%;
+    padding-top: 15px;
+    padding-bottom: 30px;
+    border-width: 5px;
+    border-color: black;
+    border-radius: 5px;
+    height: 650px;
+    overflow: auto;
+}
+
+.DoneList-Header{
+    font-size: 30px;
+    font-weight: bolder;
+    color: #001529;
+}

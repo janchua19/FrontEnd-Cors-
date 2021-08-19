@@ -1,0 +1,44 @@
+.TodoItem-todo.done{
+    color: gray;
+    text-decoration: line-through;
+    font-weight: normal;
+}
+
+.TodoItem-Table{
+    padding-top: 15px;
+    padding-bottom: 35px;
+    border-color: black;
+    max-width: 95%;
+    margin-left: 2.5%;
+    background-color: #ecd1cd;
+    border-radius: 5px;
+    position: relative;
+    margin-top: 10px;
+}
+
+.TodoItem-todo{
+    font-size: 15px;
+    font-weight: bolder;
+    position: absolute;
+    left: 10px;
+    color: black;
+}
+
+.Delete{
+    border-radius: 50%;
+    border-color: transparent;
+    position: absolute;
+    right: 10px;
+    font-size: 15px;
+    background-color: transparent;
+    color: gray;
+}
+
+.Delete:hover{
+    border-radius: 50%;
+    border-color: red;
+    background-color: red;
+    color: white;
+    font-size: 15px;
+    font-weight: bolder;
+}
