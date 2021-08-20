@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { deleteFromList, editTodo, updateTodo } from '../../apis/todos';
-import {selectTodoById, ToggleTodo, DeleteTodo, EditTodo} from "../reducers/todosSlice";
+import { deleteFromList, updateTodo } from '../../apis/todos';
+import {selectTodoById, DeleteTodo, UpdateTodo} from "../reducers/todosSlice";
 import "../styles/TodoItem.css";
 import { useState } from 'react';
 import { Modal} from 'antd';
@@ -10,11 +10,11 @@ function TodoItem(props) {
     const todo = useSelector (state => selectTodoById(state, props.itemId));
     const dispatch = useDispatch();
     const [isModalVisible, setIsModalVisible] = useState(false);
-    const [text, setText] = useState("");
+    const [newText, setNewText] = useState("");
 
     function handleClick() {
         updateTodo(props.itemId, {done: !todo.done}).then((response) => {
-            dispatch(ToggleTodo(props.itemId, response.data));
+            dispatch(UpdateTodo(response.data));
         });
     }
 
@@ -30,11 +30,11 @@ function TodoItem(props) {
     };
     
     const handleOk = () => {
-        var x = document.getElementById("text-area").value;
-        if(x){
-            console.log ("x:",x);
-            updateTodo(props.itemId, {x}).then((response) =>{
-                dispatch(EditTodo(props.itemId, response.data));
+        if(newText.length !== 0){
+            console.log ("newText:",newText);
+            updateTodo(props.itemId, {text: newText}).then((response) =>{
+                console.log("Response: ", response);
+                dispatch(UpdateTodo(response.data));
             });
         }
         setIsModalVisible(false);
@@ -43,6 +43,10 @@ function TodoItem(props) {
     const handleCancel = () => {
         setIsModalVisible(false);
     };
+
+    function handleChange(event){
+        setNewText(event.target.value);
+    }
 
     
     
@@ -54,7 +58,7 @@ function TodoItem(props) {
             <button className= "Delete" onClick = {onClickDelete}>X</button>
 
             <Modal title="Edit Todo" type="primary" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-                <textarea id="text-area" className="text-area">{todo.text}</textarea>
+                <textarea id="text-area" className="text-area" onChange= {handleChange}>{todo.text}</textarea>
             </Modal>
     </div>);
 }

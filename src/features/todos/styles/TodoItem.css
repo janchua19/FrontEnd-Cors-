@@ -29,14 +29,22 @@
 }
 
 .Edit{
-    border-radius: 50%;
+    border-radius: 5%;
     border-color: transparent;
     position: absolute;
-    right: 30px;
+    right: 35px;
     font-size: 15px;
-    background-color: transparent;
-    color: blue;
+    background-color: #246D82;
+    color: #ecd1cd;
     text-decoration: underline;
+}
+
+.Edit:hover{
+    border-color: red;
+    background-color: red;
+    color: white;
+    font-size: 15px;
+    font-weight: bolder;
 }
 
 .text-area{
